@@ -4,7 +4,7 @@ clear all
 
 %% dados do sistema
 sys.fo   = 50;     % freq. fundamental
-sys.mf   = 20;    % fator de modulação de freq.
+sys.mf   = 100;    % fator de modulação de freq.
 sys.fpwm = sys.mf*sys.fo; % freq. pwm
 
 % outros cálculos
@@ -83,8 +83,10 @@ if 1
 %     subplot(211)
     plot(lut.timer_time, (lut.TOP/2)*ones(1, length(lut.timer_time)), 'k'), hold on
     plot( lut.timer_time, lut.timer_counter )
-    plot( lut.timer_time, lut.timer_fsin(1, 1)  )
-    plot( lut.pwm_time,     lut.pwm_fsin(1, 1), 'o' )
+    plot( lut.timer_time, lut.timer_fsin(1, 1)  , '-o')
+    %plot( lut.timer_time, lut.timer_fsin(1, -1)  )
+    %plot( lut.pwm_time,     lut.pwm_fsin(1, 1), 'o' )
+    %plot( lut.pwm_time,     lut.pwm_fsin(1, -1), 'o' )
     
     ylabel('Counter')
     xlabel('Time, s')

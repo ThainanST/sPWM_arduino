@@ -1,66 +1,255 @@
-# PWM Senoidal com AVR (ATmega328P)
+# Sinusoidal PWM with AVR (ATmega328P)
 
-## Visão Geral
-Este código implementa um gerador de **PWM modulado senoidalmente** usando o **Timer1** do microcontrolador **AVR** (ATmega328P, como no Arduino Uno). A modulação senoidal é usada para controlar cargas como **inversores, motores e conversores de potência**.
+## Overview
 
-## Como Funciona
-1. **Cálculo dos Parâmetros**
-   - A portadora (“PWM carrier”) é definida com base na frequência da senoide de referência `fo = 60 Hz` e no fator de modulação `mf = 200`, resultando em:
+This code implements a **sinusoidally modulated PWM generator** using **Timer1** on an **AVR microcontroller** (ATmega328P, as used in the Arduino Uno).  
+Sinusoidal modulation is commonly used to control loads such as **inverters, motors, and power converters**.
+
+## How It Works
+
+1. **Parameter Calculation**
+   - The carrier frequency (`fpwm_target`) is derived from the reference sine frequency `fo = 60 Hz` and the modulation factor `mf = 200`:
      ```c
      fpwm_target = mf * fo = 200 * 60 = 12 kHz
      ```
-   - O valor **TOP** do Timer1 é calculado para ajustar a frequência PWM:
+   - The **TOP** value for Timer1 is calculated to match the desired PWM frequency:
      ```c
      TOP = ceil(ftimer / fpwm_target - 1);
      ```
 
-2. **Tabela de Senoides**
-   - Uma lookup table (`lookupSin`) é gerada para armazenar valores da senoide normalizada.
-   - No **modo bipolar**, ambos os pinos (OC1A e OC1B) seguem a mesma senoide.
-   - No **modo unipolar**, OC1A e OC1B têm defasagem de 180°.
+2. **Sine Lookup Table**
+   - A `lookupSin` table stores precomputed normalized sine wave values.
+   - In **bipolar mode**, both OC1A and OC1B follow the same sine wave.
+   - In **unipolar mode**, OC1A and OC1B are phase-shifted by 180°.
 
-3. **Configuração do Timer1**
-   - **Fast PWM (modo 14, ICR1 como TOP)**
-   - **Prescaler = 1** para maior precisão
-   - **Interrupção ativada** para atualizar o PWM a cada ciclo
+3. **Timer1 Configuration**
+   - **Fast PWM (Mode 14, ICR1 as TOP)**
+   - **Prescaler = 1** for higher resolution
+   - **Interrupt enabled** to update PWM on every cycle
 
-4. **Interrupção do Timer1**
-   - Quando ocorre um overflow, `isInterrupt` é setado como `true`.
-   - No loop principal, o PWM é atualizado conforme a tabela `lookupSin`.
+4. **Timer1 Interrupt**
+   - On overflow, the `isInterrupt` flag is set to `true`.
+   - The main `loop()` uses this flag to update the PWM values from `lookupSin`.
 
-## Estrutura do Código
-### **Variáveis Principais**
+## Code Structure
+
+### **Main Variables**
 ```c
 const double fo = 60.0;
 const double mf = 200.0;
 const double fclk = 16e6;
 const int N = 1;
 ```
-- `fo`: Frequência da senoide de referência (60Hz)
-- `mf`: Frequência da portadora relativa (200x maior)
-- `fclk`: Clock do microcontrolador (16MHz)
-- `N`: Prescaler (1)
+- `fo`: Sine reference frequency (60 Hz)
+- `mf`: Modulation factor (carrier = 200 × `fo`)
+- `fclk`: Microcontroller clock (16 MHz)
+- `N`: Prescaler (set to 1)
 
-### **Funções Principais**
-- `setup()`: Configura PWM e interrupções.
-- `loop()`: Atualiza `OCR1A` e `OCR1B` com os valores da lookup table.
-- `ISR(TIMER1_OVF_vect)`: Ativa flag para atualização do PWM.
-- `generateLookupTable()`: Gera os valores da senoide.
-- `setPrescaler()`, `setWaveformGenerationMode()`, `setPWMPinMode()`: Configura o Timer1.
+### **Key Functions**
+- `setup()`: Configures PWM and interrupts
+- `loop()`: Updates `OCR1A` and `OCR1B` using the sine lookup table
+- `ISR(TIMER1_OVF_vect)`: Sets flag to trigger PWM update
+- `generateLookupTable()`: Generates sine samples
+- `setPrescaler()`, `setWaveformGenerationMode()`, `setPWMPinMode()`: Timer1 configuration utilities
 
-## Como Rodar
-1. **Carregue o código** em um **Arduino Uno** ou qualquer microcontrolador AVR compatível.
-2. **Monitore os pinos 9 (OC1A) e 10 (OC1B)** no osciloscópio para visualizar a onda PWM.
-3. **Ajuste `ma` (magnitude da senoide) e `mf` (frequência da portadora)** conforme necessidade.
+## How to Run
 
-## Melhorias Futuras
-- **Armazenar lookup table na Flash (`PROGMEM`)** para economizar RAM.
-- **Implementar espaçamento de amostras via interrupções** para maior precisão temporal.
-- **Adicionar um controle dinâmico de amplitude** (modulação dinâmica da portadora).
+1. **Upload the code** to an **Arduino Uno** or compatible AVR microcontroller.
+2. **Observe pins 9 (OC1A) and 10 (OC1B)** with an oscilloscope to visualize the PWM waveform.
+3. **Adjust `ma` (sine amplitude) and `mf` (modulation factor)** as needed.
+
+## Future Improvements
+
+- **Store lookup table in Flash (`PROGMEM`)** to reduce RAM usage.
+- **Implement sample spacing with compare match interrupts** for better timing accuracy.
+- **Add dynamic amplitude control** for real-time waveform modulation.
+
+# Arduino PWM – Slides
+
+This repository contains the full slide deck for the presentation on **Sinusoidal PWM using Timer1 on Arduino**.
+
+The slides cover:
+- H-bridge inverter structure
+- Unipolar and bipolar PWM generation
+- Timer1 configuration
+- Use of lookup tables for sine generation
+- Interrupt handling and register configuration
+
+Below are the slides in order, from Slide 1 to Slide 44.
 
 ---
+### Slide 1
 
-**Autor:** [Seu Nome]  
-**Licença:** MIT  
-**Projeto:** PWM Senoidal para Microcontroladores AVR
+![Slide 1](figures/Slide1.png)
 
+### Slide 2
+
+![Slide 2](figures/Slide2.png)
+
+### Slide 3
+
+![Slide 3](figures/Slide3.png)
+
+### Slide 4
+
+![Slide 4](figures/Slide4.png)
+
+### Slide 5
+
+![Slide 5](figures/Slide5.png)
+
+### Slide 6
+
+![Slide 6](figures/Slide6.png)
+
+### Slide 7
+
+![Slide 7](figures/Slide7.png)
+
+### Slide 8
+
+![Slide 8](figures/Slide8.png)
+
+### Slide 9
+
+![Slide 9](figures/Slide9.png)
+
+### Slide 10
+
+![Slide 10](figures/Slide10.png)
+
+### Slide 11
+
+![Slide 11](figures/Slide11.png)
+
+### Slide 12
+
+![Slide 12](figures/Slide12.png)
+
+### Slide 13
+
+![Slide 13](figures/Slide13.png)
+
+### Slide 14
+
+![Slide 14](figures/Slide14.png)
+
+### Slide 15
+
+![Slide 15](figures/Slide15.png)
+
+### Slide 16
+
+![Slide 16](figures/Slide16.png)
+
+### Slide 17
+
+![Slide 17](figures/Slide17.png)
+
+### Slide 18
+
+![Slide 18](figures/Slide18.png)
+
+### Slide 19
+
+![Slide 19](figures/Slide19.png)
+
+### Slide 20
+
+![Slide 20](figures/Slide20.png)
+
+### Slide 21
+
+![Slide 21](figures/Slide21.png)
+
+### Slide 22
+
+![Slide 22](figures/Slide22.png)
+
+### Slide 23
+
+![Slide 23](figures/Slide23.png)
+
+### Slide 24
+
+![Slide 24](figures/Slide24.png)
+
+### Slide 25
+
+![Slide 25](figures/Slide25.png)
+
+### Slide 26
+
+![Slide 26](figures/Slide26.png)
+
+### Slide 27
+
+![Slide 27](figures/Slide27.png)
+
+### Slide 28
+
+![Slide 28](figures/Slide28.png)
+
+### Slide 29
+
+![Slide 29](figures/Slide29.png)
+
+### Slide 30
+
+![Slide 30](figures/Slide30.png)
+
+### Slide 31
+
+![Slide 31](figures/Slide31.png)
+
+### Slide 32
+
+![Slide 32](figures/Slide32.png)
+
+### Slide 33
+
+![Slide 33](figures/Slide33.png)
+
+### Slide 34
+
+![Slide 34](figures/Slide34.png)
+
+### Slide 35
+
+![Slide 35](figures/Slide35.png)
+
+### Slide 36
+
+![Slide 36](figures/Slide36.png)
+
+### Slide 37
+
+![Slide 37](figures/Slide37.png)
+
+### Slide 38
+
+![Slide 38](figures/Slide38.png)
+
+### Slide 39
+
+![Slide 39](figures/Slide39.png)
+
+### Slide 40
+
+![Slide 40](figures/Slide40.png)
+
+### Slide 41
+
+![Slide 41](figures/Slide41.png)
+
+### Slide 42
+
+![Slide 42](figures/Slide42.png)
+
+### Slide 43
+
+![Slide 43](figures/Slide43.png)
+
+### Slide 44
+
+![Slide 44](figures/Slide44.png)

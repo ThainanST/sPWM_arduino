@@ -2,8 +2,8 @@ clc
 close all
 clear all
 
-fo     = 60;    % freq. fundamental
-mf     = 200;   % fator de modulação de freq.
+fo     = 50;    % freq. fundamental
+mf     = 15;    % fator de modulação de freq.
 fclk   = 16e6;  % freq. microcontrolador
 N      = 1;     % prescaler timer1
 
@@ -26,13 +26,32 @@ lookupSin = sin(2*pi*fo*n*(To/Ns))';
 
 TOP = 1500;
 figure
-subplot(211)
-plot(lookupSin), grid on, hold on
-plot(-lookupSin)
-subplot(212)
-plot((TOP/2)*(lookupSin+1)), grid on, hold on
-plot((TOP/2)*(-lookupSin+1))
+subplot(311)
+plot(n, lookupSin, '-o'), grid on, hold on
+%plot(-lookupSin, '-o')
+xlim([n(1) n(end)])
+xlabel('Samples, adm')
+ylabel('Amplitude, adm')
+legend('Sine - Lookup table')
 
+subplot(312)
+plot(n, (TOP/2)*(lookupSin+1), '-o'), grid on, hold on
+%plot((TOP/2)*(-lookupSin+1))
+xlim([n(1) n(end)])
+xlabel('Samples, adm')
+ylabel('Amplitude, adm')
+legend('Offset Sine')
+
+subplot(313)
+x = linspace(n(1), n(end), 1000);
+y = mod(x*TOP, TOP);
+plot(n, (TOP/2)*(lookupSin+1), '-o'), grid on, hold on
+%plot((TOP/2)*(-lookupSin+1))
+plot(x, y)
+xlim([n(1) n(end)])
+xlabel('Samples, adm')
+ylabel('Amplitude, adm')
+legend('Offset sine', 'Sawtooth')
 
 
 
