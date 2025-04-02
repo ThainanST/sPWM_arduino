@@ -80,176 +80,176 @@ Below are the slides in order, from Slide 1 to Slide 44.
 ---
 ### Slide 1
 
-![Slide 1](figures/Slide1.png)
+![Slide 1](figures/Slide1.PNG)
 
 ### Slide 2
 
-![Slide 2](figures/Slide2.png)
+![Slide 2](figures/Slide2.PNG)
 
 ### Slide 3
 
-![Slide 3](figures/Slide3.png)
+![Slide 3](figures/Slide3.PNG)
 
 ### Slide 4
 
-![Slide 4](figures/Slide4.png)
+![Slide 4](figures/Slide4.PNG)
 
 ### Slide 5
 
-![Slide 5](figures/Slide5.png)
+![Slide 5](figures/Slide5.PNG)
 
 ### Slide 6
 
-![Slide 6](figures/Slide6.png)
+![Slide 6](figures/Slide6.PNG)
 
 ### Slide 7
 
-![Slide 7](figures/Slide7.png)
+![Slide 7](figures/Slide7.PNG)
 
 ### Slide 8
 
-![Slide 8](figures/Slide8.png)
+![Slide 8](figures/Slide8.PNG)
 
 ### Slide 9
 
-![Slide 9](figures/Slide9.png)
+![Slide 9](figures/Slide9.PNG)
 
 ### Slide 10
 
-![Slide 10](figures/Slide10.png)
+![Slide 10](figures/Slide10.PNG)
 
 ### Slide 11
 
-![Slide 11](figures/Slide11.png)
+![Slide 11](figures/Slide11.PNG)
 
 ### Slide 12
 
-![Slide 12](figures/Slide12.png)
+![Slide 12](figures/Slide12.PNG)
 
 ### Slide 13
 
-![Slide 13](figures/Slide13.png)
+![Slide 13](figures/Slide13.PNG)
 
 ### Slide 14
 
-![Slide 14](figures/Slide14.png)
+![Slide 14](figures/Slide14.PNG)
 
 ### Slide 15
 
-![Slide 15](figures/Slide15.png)
+![Slide 15](figures/Slide15.PNG)
 
 ### Slide 16
 
-![Slide 16](figures/Slide16.png)
+![Slide 16](figures/Slide16.PNG)
 
 ### Slide 17
 
-![Slide 17](figures/Slide17.png)
+![Slide 17](figures/Slide17.PNG)
 
 ### Slide 18
 
-![Slide 18](figures/Slide18.png)
+![Slide 18](figures/Slide18.PNG)
 
 ### Slide 19
 
-![Slide 19](figures/Slide19.png)
+![Slide 19](figures/Slide19.PNG)
 
 ### Slide 20
 
-![Slide 20](figures/Slide20.png)
+![Slide 20](figures/Slide20.PNG)
 
 ### Slide 21
 
-![Slide 21](figures/Slide21.png)
+![Slide 21](figures/Slide21.PNG)
 
 ### Slide 22
 
-![Slide 22](figures/Slide22.png)
+![Slide 22](figures/Slide22.PNG)
 
 ### Slide 23
 
-![Slide 23](figures/Slide23.png)
+![Slide 23](figures/Slide23.PNG)
 
 ### Slide 24
 
-![Slide 24](figures/Slide24.png)
+![Slide 24](figures/Slide24.PNG)
 
 ### Slide 25
 
-![Slide 25](figures/Slide25.png)
+![Slide 25](figures/Slide25.PNG)
 
 ### Slide 26
 
-![Slide 26](figures/Slide26.png)
+![Slide 26](figures/Slide26.PNG)
 
 ### Slide 27
 
-![Slide 27](figures/Slide27.png)
+![Slide 27](figures/Slide27.PNG)
 
 ### Slide 28
 
-![Slide 28](figures/Slide28.png)
+![Slide 28](figures/Slide28.PNG)
 
 ### Slide 29
 
-![Slide 29](figures/Slide29.png)
+![Slide 29](figures/Slide29.PNG)
 
 ### Slide 30
 
-![Slide 30](figures/Slide30.png)
+![Slide 30](figures/Slide30.PNG)
 
 ### Slide 31
 
-![Slide 31](figures/Slide31.png)
+![Slide 31](figures/Slide31.PNG)
 
 ### Slide 32
 
-![Slide 32](figures/Slide32.png)
+![Slide 32](figures/Slide32.PNG)
 
 ### Slide 33
 
-![Slide 33](figures/Slide33.png)
+![Slide 33](figures/Slide33.PNG)
 
 ### Slide 34
 
-![Slide 34](figures/Slide34.png)
+![Slide 34](figures/Slide34.PNG)
 
 ### Slide 35
 
-![Slide 35](figures/Slide35.png)
+![Slide 35](figures/Slide35.PNG)
 
 ### Slide 36
 
-![Slide 36](figures/Slide36.png)
+![Slide 36](figures/Slide36.PNG)
 
 ### Slide 37
 
-![Slide 37](figures/Slide37.png)
+![Slide 37](figures/Slide37.PNG)
 
 ### Slide 38
 
-![Slide 38](figures/Slide38.png)
+![Slide 38](figures/Slide38.PNG)
 
 ### Slide 39
 
-![Slide 39](figures/Slide39.png)
+![Slide 39](figures/Slide39.PNG)
 
 ### Slide 40
 
-![Slide 40](figures/Slide40.png)
+![Slide 40](figures/Slide40.PNG)
 
 ### Slide 41
 
-![Slide 41](figures/Slide41.png)
+![Slide 41](figures/Slide41.PNG)
 
 ### Slide 42
 
-![Slide 42](figures/Slide42.png)
+![Slide 42](figures/Slide42.PNG)
 
 ### Slide 43
 
-![Slide 43](figures/Slide43.png)
+![Slide 43](figures/Slide43.PNG)
 
 ### Slide 44
 
-![Slide 44](figures/Slide44.png)
+![Slide 44](figures/Slide44.PNG)
